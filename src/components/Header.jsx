@@ -46,7 +46,7 @@ const Header = () => {
   };
 
   return (
-    <div className="fixed z-50 w-screen p-3 px-4 md:p-6 md:px-16">
+    <div className="fixed z-50 w-screen p-3 px-4 md:p-6 md:px-16 bg-primary">
       {/* desktop & tablet */}
       <div className="hidden md:flex w-full h-full items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
@@ -131,7 +131,7 @@ const Header = () => {
               initial={{ opacity: 0, scale: 0.6 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.6 }}
-              className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12 right-0 overflow-hidden"
+              className="w-40 bg-gray-50 shadow-xl rounded-lg flex flex-col absolute top-12 left-0 overflow-hidden"
             >
               {user && user.email === "mynguyen.24hdev@gmail.com" && (
                 <Link to="/createItem">
