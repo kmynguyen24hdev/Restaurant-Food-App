@@ -7,7 +7,7 @@ import MainContainer from "./components/MainContainer";
 
 function App() {
   return (
-    <AnimatePresence>
+    <AnimatePresence exitBeforeEnter>
       <div className="w-screen flex flex-col bg-primary">
         <Header />
         <main className="mt-24 w-full p-8">
