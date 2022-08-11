@@ -6,4 +6,5 @@ const userInfo = fetchUser()
 
 export const initialStore = {
     user: userInfo,
+    foodItems: null,
 }

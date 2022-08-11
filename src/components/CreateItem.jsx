@@ -16,9 +16,12 @@ import {
   ref,
   uploadBytesResumable,
 } from "firebase/storage";
-import { data } from "autoprefixer";
-import { saveItem } from "../utils/firebaseFunctions";
+import { getAllFoodItems, saveItem } from "../utils/firebaseFunctions";
+import { useStateValue } from "../context/StateProvider";
+import { actionType } from "../context/reducer";
 const CreateItem = () => {
+  const [{foodItems}, dispatch] = useStateValue();
+
   const [title, setTitle] = useState("");
   const [calories, setCalories] = useState("");
   const [price, setPrice] = useState("");
@@ -122,6 +125,8 @@ const CreateItem = () => {
         setIsLoading(false);
       }, 4000);
     }
+
+    fetchData()
   };
 
   const clearData = () => {
@@ -130,6 +135,15 @@ const CreateItem = () => {
     setCalories('')
     setPrice('')
     setCalories('')
+  }
+
+  const fetchData = async () => {
+    await getAllFoodItems().then((data) => {
+      dispatch({
+        type: actionType.SET_FOOD_ITEMS,
+        foodItems: data,
+      })
+    })
   }
 
   return (
