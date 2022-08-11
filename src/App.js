@@ -10,20 +10,20 @@ import { useStateValue } from "./context/StateProvider";
 import { getAllFoodItems } from "./utils/firebaseFunctions";
 
 function App() {
-  const [{foodItems}, dispatch] = useStateValue();
+  const [{ foodItems }, dispatch] = useStateValue();
 
-  const fetchData = async () => {
+  const fetchFoodItems = async () => {
     await getAllFoodItems().then((data) => {
       dispatch({
         type: actionType.SET_FOOD_ITEMS,
         foodItems: data,
-      })
-    })
-  }
+      });
+    });
+  };
 
-  useEffect(()=> {
-    fetchData()
-  }, [])
+  useEffect(() => {
+    fetchFoodItems();
+  }, []);
 
   return (
     <AnimatePresence exitBeforeEnter>
