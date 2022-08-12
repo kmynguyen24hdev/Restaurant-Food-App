@@ -21,14 +21,14 @@ function RowContainer({ flag, data, scrollValue }) {
         data.map((item) => (
           <div
             key={item.id}
-            className="w-275 h-[175px] min-w-[275px] md:w-300 md:min-w-[300px] px-4 py-2 my-12 backdrop-blur-lg bg-cardOverlay rounded-lg hover:drop-shadow-lg flex flex-col items-center justify-evenly relative"
+            className="w-275 min-w-[275px] md:w-300 md:min-w-[300px] px-4 py-2 my-12 backdrop-blur-lg bg-cardOverlay rounded-lg hover:drop-shadow-lg flex flex-col items-center justify-evenly relative"
           >
             <div className="w-full flex items-center justify-between">
               <motion.img
                 whileHover={{ scale: 1.2 }}
                 src={item?.imageURL}
                 alt="product"
-                className="w-40 -mt-8 drop-shadow-2xl"
+                className="w-40 -mt-8 drop-shadow-2xl min-h-[168px]"
               />
               <motion.div
                 whileTap={{ scale: 0.75 }}
